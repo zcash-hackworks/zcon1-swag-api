@@ -1,0 +1,19 @@
+syntax = "proto3";
+package swagapi;
+option go_package = "api";
+
+message Request {
+    string token = 1;
+    string address = 2;
+}
+
+message Response {
+    bool success = 1;
+    string msg = 2;
+}
+
+service SwagAPI {
+    rpc Redeem(Request) returns (Response) {}
+}
+
+
