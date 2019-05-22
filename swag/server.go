@@ -11,11 +11,14 @@ type Server struct {
 }
 
 func NewServer(dbPath string, zc *rpcclient.Client) (api.SwagAPIServer, error) {
-	return nil, nil
+	return &Server{}, nil
 }
 
 func (s *Server) Redeem(ctx context.Context, req *api.Request) (*api.Response, error) {
-	return nil, nil
+	return &api.Response{
+		Success: true,
+		Msg:     "hello",
+	}, nil
 }
 
 func (s *Server) GracefulStop() {}
