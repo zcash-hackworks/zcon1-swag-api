@@ -81,13 +81,13 @@ type Options struct {
 
 func main() {
 	opts := &Options{}
-	flag.StringVar(&opts.bindAddr, "bind-addr", "127.0.0.1:9067", "the address to listen on")
-	flag.StringVar(&opts.dbPath, "db-path", "", "the path to a sqlite database file")
+	flag.StringVar(&opts.bindAddr, "bind-addr", "127.0.0.1:9067", "the address to listen on (optional)")
+	flag.StringVar(&opts.dbPath, "db-path", "", "the path to a sqlite database file (required)")
 	flag.StringVar(&opts.tlsCertPath, "tls-cert", "", "the path to a TLS certificate (optional)")
 	flag.StringVar(&opts.tlsKeyPath, "tls-key", "", "the path to a TLS key file (optional)")
-	flag.Uint64Var(&opts.logLevel, "log-level", uint64(logrus.InfoLevel), "log level (logrus 1-7)")
-	flag.StringVar(&opts.logPath, "log-file", "", "log file to write to")
-	flag.StringVar(&opts.zcashConfPath, "conf-file", "", "conf file to pull RPC creds from")
+	flag.Uint64Var(&opts.logLevel, "log-level", uint64(logrus.InfoLevel), "log level 1-7 (optional)")
+	flag.StringVar(&opts.logPath, "log-file", "", "log file to write to (optional)")
+	flag.StringVar(&opts.zcashConfPath, "conf-path", "", "path to zcash.conf file with RPC creds (required)")
 	// TODO prod metrics
 	// TODO support config from file and env vars
 	flag.Parse()
